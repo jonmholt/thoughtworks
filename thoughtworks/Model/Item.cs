@@ -35,8 +35,8 @@ namespace thoughtworks
                 {
                     tax += Math.Ceiling((_price * importDuty) * 20) / 20;
                 }
-                //set tax
-                this.Tax = tax;
+                //set tax (man...I hate floating point and money)
+                this.Tax = Math.Round(tax,2);
             }
 
         }
@@ -68,8 +68,8 @@ namespace thoughtworks
         {
             get
             {
-                return _tax+_price;
-
+                //bloody floating point
+                return Math.Round(_tax + _price, 2);
             }
         }
         public bool isImported {

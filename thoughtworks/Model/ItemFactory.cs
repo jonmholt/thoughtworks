@@ -9,9 +9,8 @@ namespace thoughtworks
     public class ItemFactory
     {
         private static List<string> books = new List<string> { "book" };
-        //I guess you could do a "contains chocolate" but that just seems to convenient
-        private static List<string> foods = new List<string> { "chocolates", "box of chocolates", "chocolate bar" };
-        private static List<string> medical = new List<string> { "headache pills" };
+        private static List<string> foods = new List<string> { "chocolate"};
+        private static List<string> medical = new List<string> { "pill" };
 
         public static List<IItem> Parse(Stream stream)
         {
@@ -28,31 +27,31 @@ namespace thoughtworks
                         //get the number in case
                         int count = int.Parse(line.Substring(0, 1));
                         //get the item.  the item and price are dilineated by "at"
-                        string what = line.Substring(2,line.IndexOf("at")-2).TrimEnd();
+                        string what = line.Substring(2,line.IndexOf(" at ")-2).TrimEnd();
                         //check if its imported
-                        bool imported = what.StartsWith("imported");
+                        bool imported = what.Contains("imported");
                         if (imported)
                         {
-                            //remove 'imported' from the type
-                            what = what.Substring(what.IndexOf(" "));
+                            //move 'imported' to the beginning of the string
+                            what = "imported " + what.Replace("imported ", "");
                         }
                         //and now the price
-                        double price = double.Parse(line.Substring(line.IndexOf("at")+2));
+                        double price = double.Parse(line.Substring(line.IndexOf(" at ")+4));
 
                         //Now, just in case someone gets sneaky and put a 2 in front
                         for (int i = count - 1; i >= 0; i--)
                         {
                             //Create the object
-                            IItem item = null;
-                            if (books.Contains(what))
+                            IItem item = null;                            
+                            if (books.Any(s=>what.Contains(s)))
                             {
                                 item = new Book();
                             }
-                            else if (foods.Contains(what))
+                            else if (foods.Any(s => what.Contains(s)))
                             {
                                 item = new Food();
                             }
-                            else if (medical.Contains(what))
+                            else if (medical.Any(s => what.Contains(s)))
                             {
                                 item = new Medical();
                             }
@@ -61,8 +60,8 @@ namespace thoughtworks
                                 //Its just something else.
                                 item = new Item();
                             }
-                            item.Price = price;
                             item.isImported = imported;
+                            item.Price = price;
                             item.Description = what;
 
                             //Add it to the list

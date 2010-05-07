@@ -20,7 +20,11 @@ namespace thoughtworkstests
         const string doubleItem = "1 book at 12.49\n1 book at 12.49";
 
         const string input1 = "1 book at 12.49\n1 music CD at 14.99\n1 chocolate bar at 0.85";
+        const string input2 = "1 imported box of chocolates at 10.00\n1 imported bottle of perfume at 47.50";
+        const string input3 = "1 imported bottle of perfume at 27.99\n1 bottle of perfume at 18.99\n1 packet of headache pills at 9.75\n1 box of imported chocolates at 11.25";
         
+
+
         public ItemFactoryTests()
         {
             
@@ -216,21 +220,101 @@ namespace thoughtworkstests
                 }
                 else if (item is Food)
                 {
-                    Assert.AreEqual(14.99, item.Price);
-                    Assert.AreEqual(1.50, item.Tax);
-                    Assert.AreEqual(16.49, item.ShelfPrice);
-                    Assert.AreEqual("music CD", item.Description);
-                }
-                else
-                {
                     Assert.AreEqual(0.85, item.Price);
                     Assert.AreEqual(0, item.Tax);
                     Assert.AreEqual(0.85, item.ShelfPrice);
                     Assert.AreEqual("chocolate bar", item.Description);
                 }
+                else
+                {
+                    Assert.AreEqual(14.99, item.Price);
+                    Assert.AreEqual(1.50, item.Tax);
+                    Assert.AreEqual(16.49, item.ShelfPrice);
+                    Assert.AreEqual("music CD", item.Description);
+                }
+            }
+        }
+        /**
+         * This test parses input 2 and verifies the output values
+         */
+        [TestMethod]
+        public void ValidateInput2()
+        {
+            //Get the list
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(input2)));
+
+            //Assert that 2 items are returned
+            Assert.AreEqual(2, list.Count);
+
+            foreach (IItem item in list)
+            {
+                if (item is Food)
+                {
+                    Assert.AreEqual(10.00, item.Price);
+                    Assert.AreEqual(0.50, item.Tax);
+                    Assert.AreEqual(10.50, item.ShelfPrice);
+                    Assert.AreEqual("imported box of chocolates", item.Description);
+                }
+                else
+                {
+                    Assert.AreEqual(47.50, item.Price);
+                    Assert.AreEqual(7.15, item.Tax);
+                    Assert.AreEqual(54.65, item.ShelfPrice);
+                    Assert.AreEqual("imported bottle of perfume", item.Description);
+                }
+            }
+        }
+        /**
+         * This test parses input 3 and verifies the output values
+         */
+        [TestMethod]
+        public void ValidateInput3()
+        {
+            //Get the list
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(input3)));
+
+            //Assert that 4 items are returned
+            Assert.AreEqual(4, list.Count);
+
+            foreach (IItem item in list)
+            {
+                if (item is Medical)
+                {
+                    Assert.AreEqual(9.75, item.Price);
+                    Assert.AreEqual(0, item.Tax);
+                    Assert.AreEqual(9.75, item.ShelfPrice);
+                    Assert.AreEqual("packet of headache pills", item.Description);
+                }
+                else if (item is Food)
+                {
+                    Assert.AreEqual(11.25, item.Price);
+                    Assert.AreEqual(0.60, item.Tax);
+                    Assert.AreEqual(11.85, item.ShelfPrice);
+                    Assert.AreEqual("imported box of chocolates", item.Description);
+                }
+                else
+                {
+                    if (item.Description.Equals("bottle of perfume"))
+                    {
+                        Assert.AreEqual(18.99, item.Price);
+                        Assert.AreEqual(1.90, item.Tax);
+                        Assert.AreEqual(20.89, item.ShelfPrice);
+                        Assert.AreEqual("bottle of perfume", item.Description);
+                    }
+                    else
+                    {
+                        Assert.AreEqual(27.99, item.Price);
+                        Assert.AreEqual(4.20, item.Tax);
+                        Assert.AreEqual(32.19, item.ShelfPrice);
+                        Assert.AreEqual("imported bottle of perfume", item.Description);
+                    }
+                }
             }
         }
 
+#region Helpers
+        
+        
         //Convenience methods
         private void CompareItems(IItem item1, IItem item2){
             Assert.AreEqual(item1.Description, item2.Description);
@@ -239,5 +323,7 @@ namespace thoughtworkstests
             Assert.IsInstanceOfType(item1, item2.GetType());
             Assert.AreEqual(item1.Tax, item2.Tax);
         }
+#endregion
+
     }
 }
