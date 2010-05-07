@@ -1,0 +1,5 @@
+C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\bin\Debug\thoughtworks.exe
+C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\bin\Debug\thoughtworks.pdb
+C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\obj\Debug\thoughtworks.exe
+C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\obj\Debug\thoughtworks.pdb

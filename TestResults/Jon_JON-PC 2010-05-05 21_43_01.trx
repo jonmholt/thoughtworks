@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e5a7d98b-eef5-44b3-a99d-faeab0abcb22" name="Jon@JON-PC 2010-05-05 21:43:01" runUser="Jon-PC\Jon" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="d07d61b6-265c-4284-a92a-f971a90cc028">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Users\Jon\Documents\Projects\thoughtworks\TestResults\Jon_JON-PC 2010-05-05 21_43_01">
+      <DeploymentItem filename="C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworks\bin\Debug\thoughtworks.exe" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2010-05-05T21:43:01.1010413-06:00" queuing="2010-05-05T21:43:03.0401522-06:00" start="2010-05-05T21:43:03.2641650-06:00" finish="2010-05-05T21:43:03.9462040-06:00" />
+  <TestDefinitions>
+    <UnitTest name="SingleItemValueCheck" storage="c:\users\jon\documents\projects\thoughtworks\thoughtworkstests\bin\debug\thoughtworkstests.dll" id="0a5d26c7-35b4-4af3-2da6-e5c39de53a21">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="25967237-0f00-4946-b850-a1d96e85ca54" />
+      <TestMethod codeBase="C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworkstests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="thoughtworkstests.ItemFactoryTests, thoughtworkstests" name="SingleItemValueCheck" />
+    </UnitTest>
+    <UnitTest name="SimpleParse" storage="c:\users\jon\documents\projects\thoughtworks\thoughtworkstests\bin\debug\thoughtworkstests.dll" id="9e2cabc1-6901-56ae-4a55-904eb408255a">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="98e31cad-cf36-4e0f-9b23-1c6e45157f35" />
+      <TestMethod codeBase="C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworkstests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="thoughtworkstests.ItemFactoryTests, thoughtworkstests" name="SimpleParse" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0a5d26c7-35b4-4af3-2da6-e5c39de53a21" executionId="25967237-0f00-4946-b850-a1d96e85ca54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9e2cabc1-6901-56ae-4a55-904eb408255a" executionId="98e31cad-cf36-4e0f-9b23-1c6e45157f35" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="25967237-0f00-4946-b850-a1d96e85ca54" testId="0a5d26c7-35b4-4af3-2da6-e5c39de53a21" testName="SingleItemValueCheck" computerName="JON-PC" duration="00:00:00.0204748" startTime="2010-05-05T21:43:03.3971726-06:00" endTime="2010-05-05T21:43:03.8461983-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="98e31cad-cf36-4e0f-9b23-1c6e45157f35" testId="9e2cabc1-6901-56ae-4a55-904eb408255a" testName="SimpleParse" computerName="JON-PC" duration="00:00:00.0005944" startTime="2010-05-05T21:43:03.8571989-06:00" endTime="2010-05-05T21:43:03.8611991-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
