@@ -1,7 +1,0 @@
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworkstests.dll
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworkstests.pdb
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworks.exe
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\bin\Debug\thoughtworks.pdb
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\obj\Debug\thoughtworkstests.dll
-C:\Users\Jon\Documents\Projects\thoughtworks\thoughtworkstests\obj\Debug\thoughtworkstests.pdb
