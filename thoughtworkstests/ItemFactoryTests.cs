@@ -13,18 +13,7 @@ namespace thoughtworkstests
     /// </summary>
     [TestClass]
     public class ItemFactoryTests
-    {
-        //Single item file        
-        const string singleItem = "1 book at 12.49";
-        const string twoOfSameItem = "2 book at 12.49";
-        const string doubleItem = "1 book at 12.49\n1 book at 12.49";
-
-        const string input1 = "1 book at 12.49\n1 music CD at 14.99\n1 chocolate bar at 0.85";
-        const string input2 = "1 imported box of chocolates at 10.00\n1 imported bottle of perfume at 47.50";
-        const string input3 = "1 imported bottle of perfume at 27.99\n1 bottle of perfume at 18.99\n1 packet of headache pills at 9.75\n1 box of imported chocolates at 11.25";
-        
-
-
+    {       
         public ItemFactoryTests()
         {
             
@@ -83,7 +72,7 @@ namespace thoughtworkstests
         public void SimpleParse()
         {            
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(singleItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.singleItem)));
 
             //Assert that only a single item was returned
             Assert.AreEqual(1, list.Count);
@@ -93,10 +82,10 @@ namespace thoughtworkstests
          * This takes a single line standard entry and checks that all the values are parsed correctly
          */
         [TestMethod]
-        public void SingleItemValueCheck()
+        public void singleItemValueCheck()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(singleItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.singleItem)));
 
             //Check that there is only one
             Assert.AreEqual(1, list.Count);
@@ -117,7 +106,7 @@ namespace thoughtworkstests
         public void TwoOfSameItem()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(twoOfSameItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.twoOfSameItem)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list.Count);
@@ -126,10 +115,10 @@ namespace thoughtworkstests
          * This test takes a double line standard entry and checks that two objects are returned
          */
         [TestMethod]
-        public void DoubleItemCountCheck()
+        public void doubleItemCountCheck()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(doubleItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.doubleItem)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list.Count);
@@ -138,10 +127,10 @@ namespace thoughtworkstests
          * This takes a single line standard entry and checks that all the values are parsed correctly
          */
         [TestMethod]
-        public void DoubleItemValueCheck()
+        public void doubleItemValueCheck()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(doubleItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.doubleItem)));
 
             //Check that there are two
             Assert.AreEqual(2, list.Count);
@@ -158,10 +147,10 @@ namespace thoughtworkstests
          * This test takes a double line standard entry and checks that the two objects returned are equivalent
          */
         [TestMethod]
-        public void DoubleItemEquivalenceCheck()
+        public void doubleItemEquivalenceCheck()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(doubleItem)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.doubleItem)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list.Count);
@@ -169,20 +158,20 @@ namespace thoughtworkstests
             CompareItems(list[0], list[1]);
         }
         /**
-         * Since the doubleItem and the twoOfSameItem are logically equivalent, this test checks that
+         * Since the TestConstants.doubleItem and the twoOfSameItem are logically equivalent, this test checks that
          * two equivalent objects are returned
          */
         [TestMethod]
         public void TwoItemEquivalence()
         {
             //Get the two of same list
-            List<IItem> list1 = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(twoOfSameItem)));
+            List<IItem> list1 = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.twoOfSameItem)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list1.Count);
 
             //Get the double item List
-            List<IItem> list2 = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(doubleItem)));
+            List<IItem> list2 = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.doubleItem)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list2.Count);
@@ -204,7 +193,7 @@ namespace thoughtworkstests
         public void ValidateInput1()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(input1)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.input1)));
 
             //Assert that 3 items are returned
             Assert.AreEqual(3, list.Count);
@@ -241,7 +230,7 @@ namespace thoughtworkstests
         public void ValidateInput2()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(input2)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.input2)));
 
             //Assert that 2 items are returned
             Assert.AreEqual(2, list.Count);
@@ -271,7 +260,7 @@ namespace thoughtworkstests
         public void ValidateInput3()
         {
             //Get the list
-            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(input3)));
+            List<IItem> list = ItemFactory.Parse(new MemoryStream(Encoding.ASCII.GetBytes(TestConstants.input3)));
 
             //Assert that 4 items are returned
             Assert.AreEqual(4, list.Count);
