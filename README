@@ -1,0 +1,21 @@
+ProblemTwo is Jon Holt's coding test application that, oddly enough, responds to Problem Two of
+the assignment statement.  You're missing something, so check out the instructions below.
+
+usage: ProblemTwo <file> [<results_file>]
+
+The file format that this program accepts is really simple.  It is a basket with one shopping item per line.  The line is formatted as follows:
+        {num of items} {description of item} at {price of item}
+Each of these items comes with its own quirks:
+        num of items:           this will accept numbers greater than one, but if so entered, will print multiple lines to the receipt
+        price of item:          this is expected to the be price, without any taxes applied
+        description of item:    this describes the item.  If it contains:
+                imported:       import duty will be assessed
+                chocolate:      it will be treated as food and is tax exempt
+                pills:          it will be treated as a medical purchase and will be tax exempt
+Otherwise, the item will be taxed with the standard sales tax.
+
+Please enjoy responsibly.
+
+
+Oh! And just cause I'm a nice guy, I figured since you missed the file, I'd give you some to use.
+Try using the files Input1.txt, Input2.txt or Input3.txt as your first parameter
