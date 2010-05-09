@@ -29,8 +29,8 @@ namespace thoughtworks
                     "\t\tpills:\t\tit will be treated as a medical purchase and will be tax exempt\n"+
                     "Otherwise, the item will be taxed with the standard sales tax.\n\n"+
                     "Please enjoy responsibly.\n";
-                
-                if (!System.IO.File.Exists(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase), "Input1.txt")))
+
+                if (!System.IO.File.Exists(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase).Replace("file:\\", ""), "Input1.txt")))
                 {
                     try
                     {
